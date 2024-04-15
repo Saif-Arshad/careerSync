@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
+import Header from "@/Components/Nav/Header";
+import Footer from "@/Components/footer/Footer";
 
 export const metadata: Metadata = {
   title: "Career Sync - Boost your career with us",
@@ -13,9 +15,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning={true}>
+      <body >
       <Toaster position="top-center"/>
-      <body >{children}</body>
+<Header/>
+        {children}
+        <Footer/>
+        </body>
     </html>
   );
 }

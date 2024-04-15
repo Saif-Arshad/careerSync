@@ -41,11 +41,11 @@ const submitform = (e:any) => {
 
   return (
 
-<div className="min-h-screen bg-slate-200 dark:bg-gray-900">
+<div className="min-h-screen bg-white dark:bg-gray-900">
 	<div className="mx-auto">
 		<div className="flex justify-center px-6 pt-4 ">
-			<div className="w-full xl:w-3/4 lg:w-11/12 flex">
-				<div className="w-full h-auto bg-white dark:bg-gray-800 hidden md:flex lg:w-5/12  rounded-l-lg">
+			<div className="w-full xl:w-3/4 lg:w-11/12 flex md:flex-row flex-col">
+				<div className="w-full h-auto bg-white dark:bg-gray-800 flex lg:w-5/12  rounded-l-lg">
 					<Image
 					src={loginImage}
 					width={0}
@@ -58,12 +58,12 @@ const submitform = (e:any) => {
 
 					</div>
 				<div className="w-full lg:w-7/12 bg-white dark:bg-gray-700 p-5 rounded-lg lg:rounded-l-none">
-					<h3 className="py-4 text-2xl text-center text-black font-bold dark:text-white">Login to your  Account!</h3>
+					<h3 className="py-4 text-lg md:text-2xl capitalize text-center text-black font-bold dark:text-white">Login to your  Account!</h3>
 					<form
 					onSubmit={submitform} 
 					className="px-8 pt-6 pb-8 mb-0 bg-white dark:bg-gray-800 rounded">
 							<div className="mb-4  ">
-								<label className="block mb-2 text-sm font-bold text-black dark:text-white" htmlFor="firstName">
+								<label className="block mb-2 text-sm font-semibold md:font-bold text-black dark:text-white" htmlFor="firstName">
                                     Full Name
                                 </label>
 								<input
@@ -76,7 +76,7 @@ const submitform = (e:any) => {
 							</div>
 
 						<div className="mb-4 ">
-							<label className="block mb-2 text-sm font-bold text-black dark:text-white" htmlFor="email">
+							<label className="block mb-2 text-sm font-semibold md:font-bold text-black dark:text-white" htmlFor="email">
                                 Email
                             </label>
 							<input
@@ -89,10 +89,10 @@ const submitform = (e:any) => {
                             />
 						</div>
 							<div className="mb-4 md:mr-2 md:mb-0">
-								<label className="block mb-2 text-sm font-bold text-black dark:text-white" htmlFor="password">
+								<label className="block mb-2 text-sm font-semibold md:font-bold text-black dark:text-white" htmlFor="password">
                                     Password
                                 </label>
-								<div className='flex items-start justify-center'>
+								<div className='flex relative items-start justify-center'>
 								<input
 									onChange={(e:any)=>setpassword(e.target.value)}
 									ref={passwordtype}
@@ -101,7 +101,7 @@ const submitform = (e:any) => {
                                     type="password"
                                     placeholder="******************"
                                 />
-								<div className='h-full cursor-pointer ml-2 mt-2 text-emerald-800' onClick={togglePasswordVisibility}>
+								<div className=' absolute top-1 h-5 bg-white  right-4  cursor-pointer text-emerald-800' onClick={togglePasswordVisibility}>
    <AiFillEye size={25} /> 
 </div>
 								</div>
