@@ -75,17 +75,17 @@ const submitform = (e:any) => {
 
 					</div>
 				<div className="w-full lg:w-7/12 bg-white dark:bg-gray-700 p-5">
-					<h3 className="pt-4 text-lg md:text-2xl text-center text-black font-bold dark:text-white">Create your  Account!</h3>
+					<h3 className="pt-4 text-lg md:text-2xl text-center text-emerald-700 font-bold dark:text-white">Create your  Account!</h3>
 					<form
 					onSubmit={submitform} 
 					className="px-8 pt-6 pb-4 mb-0 bg-white dark:bg-gray-800 rounded">
 							<div className="mb-2  ">
-								<label className="block mb-2 text-sm text-semibold md:font-bold text-black dark:text-white" htmlFor="firstName">
+								<label className="block mb-2 text-sm text-semibold  text-black dark:text-white" htmlFor="firstName">
                                     Full Name
                                 </label>
 								<input
 									onChange={(e:any)=>setname(e.target.value)}
-                                    className="w-full px-3 py-2 text-sm leading-tight text-gray-700 dark:text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    className="w-full ring-1 ring-emerald-200  px-3 py-2 text-sm leading-tight text-gray-700 dark:text-white border rounded  appearance-none focus:outline-none focus:shadow-outline"
                                     id="firstName"
                                     type="text"
                                     placeholder="Muhammad saif"
@@ -93,27 +93,27 @@ const submitform = (e:any) => {
 							</div>
 
 						<div className=" ">
-							<label className="block mb-2 text-sm text-semibold md:font-bold text-black dark:text-white" htmlFor="email">
+							<label className="block mb-2 text-sm text-semibold  text-black dark:text-white" htmlFor="email">
                                 Email
                             </label>
 							<input
 									onChange={(e:any)=>setemail(e.target.value)}
 
-                                className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                className="w-full ring-1 ring-emerald-200  px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-white border rounded  appearance-none focus:outline-none focus:shadow-outline"
                                 id="email"
                                 type="email"
                                 placeholder="yourmail@gmail.com"
                             />
 						</div>
 						<div className="mb-4 md:mr-2 md:mb-0">
-								<label className="block mb-2 text-sm text-semibold md:font-bold text-black dark:text-white" htmlFor="password">
+								<label className="block mb-2 text-sm text-semibold  text-black dark:text-white" htmlFor="password">
                                     Password
                                 </label>
 								<div className='flex relative items-start justify-center'>
 								<input
 									onChange={(e:any)=>setpassword(e.target.value)}
 									ref={passwordtype}
-								  className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-white border  rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+								  className="w-full ring-1 ring-emerald-200  px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-white border  rounded  appearance-none focus:outline-none focus:shadow-outline"
                                     id="password"
                                     type="password"
                                     placeholder="******************"
@@ -124,19 +124,19 @@ const submitform = (e:any) => {
 								</div>
 							</div>
 							<div className="mb-4 md:mr-2 md:mb-0">
-								<label className="block mb-2 text-sm text-semibold md:font-bold text-black dark:text-white" htmlFor="password">
+								<label className="block mb-2 text-sm text-semibold  text-black dark:text-white" htmlFor="password">
                                     confirm Password
                                 </label>
 								<div className='flex items-start relative justify-center'>
 								<input
 									onChange={(e:any)=>setCpassword(e.target.value)}
 									ref={Cpasswordtype}
-								  className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-white border  rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+								  className="w-full ring-1 ring-emerald-200  px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-white border  rounded  appearance-none focus:outline-none focus:shadow-outline"
                                     id="password"
                                     type="password"
                                     placeholder="******************"
                                 />
-								<div className=' absolute top-1 h-5 bg-white  right-4  cursor-pointer text-emerald-800' onClick={PasswordVisibility}>
+								<div className=' absolute top-1 h-5 bg-white  right-4  cursor-pointer text-emerald-800' onClick={CPasswordVisibility}>
    <AiFillEye size={25} /> 
 </div>
 								</div>
@@ -149,7 +149,7 @@ const submitform = (e:any) => {
 
 						<div className="mb-6 mt-5 text-center">
 							<button
-                                className="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 dark:bg-blue-700 dark:text-white dark:hover:bg-blue-900 focus:outline-none focus:shadow-outline"
+                                className="w-full px-4 py-2 font-bold text-white bg-emerald-700 rounded-full hover:bg-emerald-800 dark:bg-emerald-500 dark:text-white dark:hover:bg-blue-900 focus:outline-none focus:shadow-outline"
                                 type="submit"
                             >
                                Create Account

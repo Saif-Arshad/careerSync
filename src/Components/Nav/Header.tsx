@@ -1,6 +1,8 @@
 'use client'
 import React, { useState } from 'react';
 import Link from 'next/link';
+import '@/Stylesheets/logo.css'
+import { BiSearchAlt } from "react-icons/bi";
 // import Image from 'next/image';
 
 function Header() {
@@ -15,29 +17,31 @@ function Header() {
       <nav className="bg-white border-gray-200 py-2.5 dark:bg-gray-900">
         <div className="flex flex-wrap items-center sm:justify-between justify-center max-w-screen-xl px-4 mx-auto">
           <Link href="/" >
-          <span className="self-center flex items-center text-2xl font-bold whitespace-nowrap text-orange-500">
-                Omni
-            {/* <Image
-              src={Logo}
-              className="h-9"
-              alt="Omni Logo"
-              height={100}
-              width={30}
-            /> */}
-              log
+          <span className="main self-cente box-border flex items-center justify-center text-2xl font-bold whitespace-nowrap text-emerald-500">
+          <BiSearchAlt className='icon' size={30} /> Career<span className='logo text-6xl mb-6 text-emerald-500'
+             >s   </span>ync
             </span>
           </Link>
           <div className="flex items-center gap-x-12 mt-5 ml-2  sm:gap-x-0 sm:mt-0 sm:ml-0 lg:order-2">
             <div className="hidden mt-2 mr-4 sm:inline-block">
               <span></span>
             </div>
+        <div className='space-x-4'>
+
 
             <Link
-              href="/admin"
-              className="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800"
+              href="/signin"
+              className="text-white border-emerald-500 border-2 bg-emerald-500 hover:bg-emerald-700 hover:border-emerald-700 focus:ring-4 focus:ring-emerald-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800"
             >
-              Dashboard
+              SignIn
             </Link>
+            <Link
+              href="/login"
+              className=" border-2 border-emerald-500 text-emerald-900 transition-all hover:bg-emerald-700 hover:border-emerald-700 hover:text-white focus:ring-4 focus:ring-emerald-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800"
+              >
+              LogIn
+            </Link>
+              </div>
             <button
               onClick={toggleMenu}
               type="button"
@@ -82,32 +86,25 @@ function Header() {
               <li>
                 <Link
                   href="/"
-                  className="block py-2 pl-3 pr-4 text-white b rounded lg:bg-transparent lg:hover:text-purple-700 lg:p-0 dark:text-white"
+                  className="block py-2 pl-3 pr-4 text-gray-700 b rounded lg:bg-transparent lg:hover:text-emerald-500 lg:p-0 dark:text-white"
                   aria-current="page"
                 >
                   Home
                 </Link>
               </li>
               <li>
-                    <Link href="#"
-                        className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Technology</Link>
+                    <Link href="/jobs"
+                        className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-emerald-500 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Jobs</Link>
                 </li>
                 <li>
-                    <Link href="#"
-                        className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Food</Link>
+                    <Link href="/about"
+                        className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-emerald-500 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">About</Link>
                 </li>
                 <li>
-                    <Link href="#"
-                        className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Movie</Link>
+                    <Link href="/faq"
+                        className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-emerald-500 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">FAQ&apos;s</Link>
                 </li>
-                <li>
-                    <Link href="#"
-                        className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">News</Link>
-                </li>
-                <li>
-                    <Link href="#"
-                        className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Health</Link>
-                </li>
+             
             </ul>
           </div>
         </div>

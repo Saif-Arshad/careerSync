@@ -1,0 +1,33 @@
+.main{
+    /* background: #000; */
+    /* box-sizing: border-box; */
+    height: 45px;
+}
+.logo {
+    animation: bounce 2s ease-in-out ;
+}
+.icon{
+    animation: icon .5s ease-in-out ;
+
+}
+
+@keyframes bounce {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@keyframes icon {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
