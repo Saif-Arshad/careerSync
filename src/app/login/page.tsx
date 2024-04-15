@@ -6,6 +6,9 @@ import Image from 'next/image'
 import loginImage from '../../../public/image/SVG/Login/secure-login-animate.svg'
 import Link from 'next/link'
 import { AiFillEye } from "react-icons/ai";
+import toast from 'react-hot-toast'
+
+
 export default function page() {
 	const [name,setname] =useState()
 	const [email,setemail] =useState()
@@ -17,16 +20,16 @@ export default function page() {
 const submitform = (e:any) => {
 	e.preventDefault()
 	if (!name || !email || !password) {
-		alert("all fields are required")
+		// alert("all fields are required")
+		toast.error("All fields are required")
 		return;
 	}
-	// alert("hello")		
 	console.log(name, password,email);
 	
 	};
 	const togglePasswordVisibility = () => {
 		if (!password) {
-		  alert("Please enter a password first!");
+		  toast.error("Please enter a password first!")
 		  return;
 		}
 		

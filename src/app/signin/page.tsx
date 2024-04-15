@@ -6,6 +6,7 @@ import Image from 'next/image'
 import signUpImage from '../../../public/image/SVG/signup/sign-up-animate.svg'
 import Link from 'next/link'
 import { AiFillEye } from "react-icons/ai";
+import toast from 'react-hot-toast'
 export default function page() {
 	const [name,setname] =useState()
 	const [email,setemail] =useState()
@@ -19,20 +20,22 @@ export default function page() {
 const submitform = (e:any) => {
 	e.preventDefault()
 	if (!name || !email || !password || !Cpassword) {
-		alert("all fields are required")
+		toast.error("All fields are required")
 		return;
 	}
 	if(password !== Cpassword){
 		setcheckP(true)
 		return;
 	}
-	// alert("hello")		
+	else{
+		setcheckP(false)
+	}
 	console.log(name, password,email,Cpassword);
 	
 	};
 	const PasswordVisibility = () => {
 		if (!password) {
-		  alert("Please enter a password first!");
+		  toast.error("Please enter a password first!")
 		  return;
 		}
 		
@@ -42,8 +45,8 @@ const submitform = (e:any) => {
 		}
 	  };
 	const CPasswordVisibility = () => {
-		if (!password) {
-		  alert("Please enter a password first!");
+		if (!Cpassword) {
+		  toast.error("Please enter a password first!") 
 		  return;
 		}
 		
