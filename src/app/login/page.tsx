@@ -5,7 +5,7 @@ import React,{useState,useRef} from 'react'
 import Image from 'next/image'
 import loginImage from '../../../public/image/SVG/Login/secure-login-animate.svg'
 import Link from 'next/link'
-import { AiFillEye,AiFillEyeInvisible  } from "react-icons/ai";
+import { AiFillEye } from "react-icons/ai";
 export default function page() {
 	const [name,setname] =useState()
 	const [email,setemail] =useState()
