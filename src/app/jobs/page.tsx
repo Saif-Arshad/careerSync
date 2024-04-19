@@ -2,18 +2,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
-
+import Link from 'next/link';
 import { useState } from 'react';
 import { ImLocation } from "react-icons/im";
 import React from 'react';
-import jsonData from '../../file.json'
+// import jsonData from '../../file.json'
 import axios from 'axios';
 import { CgAddR } from "react-icons/cg";
 import toast from 'react-hot-toast';
 
 function Page() { 
-  // const [data, setData] = useState([]); 
-  const [data, setData] = useState(jsonData); 
+  const [data, setData] = useState([]); 
+  // const [data, setData] = useState(jsonData); 
   const [filter, setFilter] = useState(false);
   const [title, setTitle] = useState("");
   const [city, setCity] = useState("");
@@ -23,12 +23,18 @@ function Page() {
   const [requirement, setRequirement] = useState("");
   const [jobType, setJobType] = useState("");
   const [employment, setEmployment] = useState("");
+  
+// pagination  
+
+  const [currentPage,setCurrentPage] = useState(1);
 
   const options = {
     method: 'GET',
     url: 'https://jsearch.p.rapidapi.com/search',
     params: {
       query: `${title} in ${city}, ${country}`,
+      page: currentPage,
+      num_pages: '1',
       date_posted: postingdate,
       remote_jobs_only: jobType,
       employment_types: employment,
@@ -57,10 +63,8 @@ function Page() {
       const finaldata = notdata.data;
       setData(finaldata); 
       console.log(data);
-        if (!data) {
-          console.log("Hello");
-          
-        }
+        console.log(notdata);
+        
     } catch (error:any) {
       throw error.message;
      
@@ -70,9 +74,16 @@ function Page() {
   const moreFilter = () => {
     setFilter(true);
   };
+  const prev = () => {
+    setCurrentPage(currentPage - 1)      
+  }
+  const next = () => {
+    setCurrentPage(currentPage + 1)
 
+  }
   
-  return (
+
+  return   (
     <div className='min-h-screen flex flex-col items-center w-full'>
       <div className="search w-11/12  lg:w-8/12 mt-8 flex flex-col items-center ">
         <form onSubmit={searchSubmit} className="flex items-center flex-col gap-y-5 justify-center flex-wrap">   
@@ -158,20 +169,34 @@ function Page() {
 
 {
     data.map((item:any, index:any) => (
-          <div key={index} id={item.job_id} className='Card-item w-3/12 bg-slate-500 rounded-lg px-4 py-5'>
-           <div className='top flex justify-end '>
-           {item.job_is_remote?<span>Remote</span>:<span>OnSite</span> }
+          <div key={index} id={item.job_id} className='Card-item w-12/12 md:w-5/12 bg-slate-50 border border-emerald-50 rounded-lg px-4 py-5'>
+           <div className='top flex justify-between '>
+           <p>{item.job_posted_at_datetime_utc.substring(0, 10)}</p>
+
+           {item.job_is_remote?<span className='bg-emerald-500 px-2 py-1 rounded-xl text-white font-semibold box-border' >Remote</span>:<span className='bg-emerald-500 px-2 py-1 rounded-xl text-white font-semibold box-border' >OnSite</span> }
            </div>
-            <div className='company flex justify-between  '>
+        <Link href={`/jobdetail/${item.job_id}`}>   <h1 className='text-xl font-semibold hover:underline mt-3'>{item.job_title}</h1></Link> 
+            <div className='company flex justify-between px-3 mt-2  text-gray-600'>
             <span>{item.employer_name}</span>
               <span>{item.job_city}</span>
 
             </div>
-            <h1>{item.job_title}</h1>
-            <p>{item.job_description.length > 150 ?  `${item.job_description.substring(0,90)}...`: item.job_description }</p>
+            <p className='mt-4'>{item.job_description.length > 150 ?  `${item.job_description.substring(0,134)}...`: item.job_description }</p>
 
+            <div className="flex gap-4 mt-8">
+
+<Link href={item.job_apply_link} target='_blank' className="px-6 py-2 min-w-[120px] text-center text-white bg-emerald-500  border border-emerald-500  rounded active:text-violet-500 hover:bg-transparent hover:text-emerald-500  focus:outline-none focus:ring"
+  >
+  Apply Now
+</Link>
+
+<Link className="px-6 py-2 min-w-[120px] text-center text-emerald-500  border border-emerald-500  rounded hover:bg-emerald-500  hover:text-white active:bg-indigo-500 focus:outline-none focus:ring"
+ href={`/jobdetail/${item.job_id}`}>
+  view
+</Link>
+
+</div>
             
-           <p>{item.job_posted_at_datetime_utc.substring(0, 10)}</p>
 
           </div>
  ))
@@ -180,6 +205,29 @@ function Page() {
           </div>
  : "hello"}
      </div>
+
+
+
+     <div className="flex mt-20">
+      { currentPage===1 ? "" : 
+  <button onClick={prev} className="flex items-center justify-center px-4 h-10 me-3 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+    <svg className="w-3.5 h-3.5 me-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5H1m0 0 4 4M1 5l4-4"/>
+    </svg>
+    Previous
+  </button>
+ }
+ {
+  data.length ===10 ?
+<button  onClick={next} className="flex items-center justify-center px-4 h-10 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+    Next
+    <svg className="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+    </svg>
+  </button>
+  : ""
+}
+</div>
     </div>
   );
 }
