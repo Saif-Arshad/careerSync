@@ -4,7 +4,7 @@ import Link from 'next/link';
 import '@/Stylesheets/logo.css'
 import { GoSearch } from "react-icons/go";
 import { BiSearchAlt } from "react-icons/bi";
-import { AiOutlineHome } from "react-icons/ai";
+import { AiOutlineHome,AiOutlineBarChart  } from "react-icons/ai";
 // import Image from 'next/image';
 
 function Header() {
@@ -95,6 +95,19 @@ function Header() {
 
                   <AiOutlineHome size={20}/>
                   Home
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about"
+                  className="block py-2 font-semibold pl-3 pr-4 text-gray-700 b rounded lg:bg-transparent lg:hover:text-emerald-500 lg:p-0 dark:text-white"
+                  aria-current="page"
+                >
+                       <span className='flex items-center gap-x-1'>
+
+                       <AiOutlineBarChart size={20}/>
+                  About
                   </span>
                 </Link>
               </li>
