@@ -11,6 +11,7 @@ import axios from 'axios';
 import { CgAddR } from "react-icons/cg";
 import Vedar from '@/Components/Vedar/Vedar';
 import toast from 'react-hot-toast';
+import Loader from '@/Components/Loader/Loader';
 
 function Page() { 
   const [data, setData] = useState([]); 
@@ -28,6 +29,7 @@ function Page() {
 // pagination  
 
   const [currentPage,setCurrentPage] = useState(1);
+  const [Loading,setLoading] = useState(false);
 
   const options = {
     method: 'GET',
@@ -48,25 +50,28 @@ function Page() {
   };
 
   const searchSubmit = async (e?: any) => {
+    setLoading(true)
     if (e) e.preventDefault();
     setData([]); 
     if (!title || !country || !city) {
       toast.error('These Fields are required');
+    setLoading(false);
       return;
     }
     try {
       const response = await axios.request(options);
       if (!response) {
         alert("Something went wrong");
+    setLoading(false);
         return;
       }
       
       const notdata = response.data;
       const finaldata = notdata.data;
       setData(finaldata); 
-      console.log(data);
         console.log(notdata);
-        
+    setLoading(false);
+
     } catch (error:any) {
       // throw error.message;
       console.log(error);
@@ -167,7 +172,7 @@ function Page() {
           }
         </form>
       </div>
-  
+          {Loading ? <Loader/> :
      <div className='w-11/12 mt-10 flex justify-center items-center '>
       {data.length>0 ? 
        <div className="Maincard flex flex-row flex-wrap gap-x-10 gap-y-6  justify-center ">
@@ -210,14 +215,14 @@ function Page() {
           </div>
  : <Vedar/>}
      </div>
-
+}
 
 
      <div className="flex mt-20">
       { currentPage===1 ? "" : 
   <button onClick={prev  } className="flex items-center justify-center px-4 h-10 me-3 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
     <svg className="w-3.5 h-3.5 me-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5H1m0 0 4 4M1 5l4-4"/>
+      <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" stroke-width="2" d="M13 5H1m0 0 4 4M1 5l4-4"/>
     </svg>
     Previous
   </button>
@@ -227,7 +232,7 @@ function Page() {
 <button  onClick={next} className="flex items-center justify-center px-4 h-10 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
     Next
     <svg className="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+      <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
     </svg>
   </button>
   : ""
