@@ -5,25 +5,55 @@ import React,{useState,useRef} from 'react'
 import Image from 'next/image'
 import loginImage from '../../../public/image/SVG/Login/secure-login-animate.svg'
 import Link from 'next/link'
+import { signIn } from 'next-auth/react';
+import Loading from "@/Components/AuthenticationLoader/Loading"
 import { AiFillEye } from "react-icons/ai";
+import { useRouter } from 'next/navigation'
 import toast from 'react-hot-toast'
 
 
 export default function page() {
+	const router = useRouter()
 	const [name,setname] =useState()
 	const [email,setemail] =useState()
 	const [password,setpassword] =useState()
+	const [laoder,setlaoder]=useState(false)
+
 
 	const passwordtype = useRef<HTMLInputElement>(null);
 
 	
 const submitform = (e:any) => {
 	e.preventDefault()
+	setlaoder(true)
 	if (!name || !email || !password) {
-		// alert("all fields are required")
 		toast.error("All fields are required")
+	setlaoder(false)
 		return;
 	}
+	try {
+	const func = async ()=>{
+
+
+		const login=  await signIn('credentials', {
+			email,
+			password,
+			redirect: false,
+		  })
+		  if(login?.error){
+			toast.error("Invalid login")
+	        setlaoder(false)
+
+			return
+		  }
+		  router.push('/jobs')
+		}
+		  func()
+		} 
+		catch (error) {
+		  console.log(error);
+		  
+		}
 	console.log(name, password,email);
 	
 	};
@@ -108,12 +138,15 @@ const submitform = (e:any) => {
 							</div>
 
 						<div className="mb-6 mt-5 text-center">
+						{laoder ? <Loading/> : 
+						
 							<button
                                 className="w-full px-4 py-2 font-bold text-white bg-emerald-700 rounded-full hover:bg-emerald-800 dark:bg-emerald-500 dark:text-white dark:hover:bg-emerald-700 focus:outline-none focus:shadow-outline"
                                 type="submit"
                             >
                                Login
                             </button>
+}
 						</div>
 						<hr className="mb-6 border-t" />
 						<div className=" flex flex-wrap justify-around flex-col sm:flex-row space-y-4 sm:space-y-0">
@@ -134,3 +167,7 @@ const submitform = (e:any) => {
 </div>
   )
 }
+function ifii() {
+	throw new Error('Function not implemented.')
+}
+

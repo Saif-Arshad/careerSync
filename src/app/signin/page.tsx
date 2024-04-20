@@ -8,11 +8,13 @@ import Link from 'next/link'
 import { AiFillEye } from "react-icons/ai";
 import toast from 'react-hot-toast'
 import { useRouter } from 'next/navigation';
+import Loading from "@/Components/AuthenticationLoader/Loading"
 export default function page() {
 		
 	const passwordtype = useRef<HTMLInputElement>(null);
 	const Cpasswordtype = useRef<HTMLInputElement>(null);
 	const [Cpassword,setCpassword] =useState()
+	const [loader,setloader]= useState(false)
 	const [checkP ,setcheckP] =useState(false)
 	const router = useRouter();
 //Credentials
@@ -24,16 +26,21 @@ export default function page() {
 	
 const submitform = (e:any) => {
 	e.preventDefault()
+	setloader(true)
 	if (!name || !email || !password || !Cpassword) {
 		toast.error("All fields are required")
+	setloader(false)
 		return;
 	}
 	if(password !== Cpassword){
 		setcheckP(true)
+	setloader(false)
 		return;
 	}
 	else{
 		setcheckP(false)
+	setloader(true)
+
 	}
 	try {
 		const postinfData = async ()=>{
@@ -46,7 +53,9 @@ const submitform = (e:any) => {
 			});
 			const { userExists } = await checkAlready.json();
 			if (userExists) {
-				toast.error("User already exist");
+				toast.error("Email Already Exist Try Another Email to signIn");
+	setloader(false)
+
 				return;
 			}
 		
@@ -63,7 +72,9 @@ const submitform = (e:any) => {
 			  else {
 				console.log("User Failed");
 			  }
-		}
+	setloader(false)
+			  
+			}
 		postinfData()
 		
 	} catch (error:any) {
@@ -189,12 +200,14 @@ const submitform = (e:any) => {
 							</div>
 
 						<div className="mb-6 mt-5 text-center">
+							{loader ? <Loading/> : 
 							<button
                                 className="w-full px-4 py-2 font-bold text-white bg-emerald-700 rounded-full hover:bg-emerald-800 dark:bg-emerald-500 dark:text-white dark:hover:bg-blue-900 focus:outline-none focus:shadow-outline"
                                 type="submit"
                             >
                                Create Account
                             </button>
+							}
 						</div>
 						<hr className="mb-6 border-t" />
 						<div className=" flex flex-wrap justify-around flex-col sm:flex-row space-y-4 sm:space-y-0">
