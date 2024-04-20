@@ -7,14 +7,19 @@ import signUpImage from '../../../public/image/SVG/signup/sign-up-animate.svg'
 import Link from 'next/link'
 import { AiFillEye } from "react-icons/ai";
 import toast from 'react-hot-toast'
+import { useRouter } from 'next/navigation';
 export default function page() {
+		
+	const passwordtype = useRef<HTMLInputElement>(null);
+	const Cpasswordtype = useRef<HTMLInputElement>(null);
+	const [Cpassword,setCpassword] =useState()
+	const [checkP ,setcheckP] =useState(false)
+	const router = useRouter();
+//Credentials
+
 	const [name,setname] =useState()
 	const [email,setemail] =useState()
 	const [password,setpassword] =useState()
-	const [Cpassword,setCpassword] =useState()
-	const [checkP ,setcheckP] =useState(false)
-	const passwordtype = useRef<HTMLInputElement>(null);
-	const Cpasswordtype = useRef<HTMLInputElement>(null);
 
 	
 const submitform = (e:any) => {
@@ -29,6 +34,29 @@ const submitform = (e:any) => {
 	}
 	else{
 		setcheckP(false)
+	}
+	try {
+		const postinfData = async ()=>{
+			const res = await fetch('/api/Authentication/signin',{
+				method:'POST',
+				headers:{
+					'Content-Type':'application/json'
+				},
+				body:JSON.stringify({name,email,password})
+			})
+			if (res.ok) {
+				router.push("/");
+			  }
+			  else {
+				console.log("User Failed");
+			  }
+		}
+		postinfData()
+		
+	} catch (error:any) {
+			console.log(error);
+			throw error.message
+			
 	}
 	console.log(name, password,email,Cpassword);
 	

@@ -30,10 +30,12 @@ Every day, we’re inspired by a vision to make positive workplace change throug
                 <Image
                   src={one}
                   alt='compant one'
-                >
-                  </Image>
-                <Image
-                  src={two}
+                  height={220}
+                  >
+                    </Image>
+                  <Image
+                    src={two}
+                    height={130}
                   alt='compant otwone'
                 >
                   </Image>
