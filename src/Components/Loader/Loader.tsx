@@ -2,7 +2,7 @@ import React from 'react'
 import './Loader.css'
 function Loader() {
   return (
-    <div>
+    <div className='mt-4'>
       <div className="loader">
   <div className="truckWrapper">
     <div className="truckBody">
@@ -130,7 +130,7 @@ h78.747C231.693,100.736,232.77,106.162,232.77,111.694z"
     </svg>
   </div>
 </div>
-    <p className='w-full text-center'>Data is Loading...</p>
+    <p className='w-full text-center'>Loading Data...</p>
     </div>
   )
 }

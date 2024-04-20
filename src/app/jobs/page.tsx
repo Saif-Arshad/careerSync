@@ -2,34 +2,34 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { useState } from 'react';
-import { ImLocation } from "react-icons/im";
-import React from 'react';
-// import jsonData from '../../file.json'
+import { ImLocation } from 'react-icons/im';
+import { CgAddR } from 'react-icons/cg';
 import axios from 'axios';
-import { CgAddR } from "react-icons/cg";
-import Vedar from '@/Components/Vedar/Vedar';
-import toast from 'react-hot-toast';
 import Loader from '@/Components/Loader/Loader';
+import ButtonApply from '@/Components/Apply/buttonApply';
+import Vedar from '@/Components/Vedar/Vedar';
+// import datatotal from '../../file.json'
+import toast from 'react-hot-toast';
 
-function Page() { 
-  const [data, setData] = useState([]); 
-  // const [data, setData] = useState(jsonData); 
+function Page() {
+  const [data, setData] = useState([]);
+  // const [data, setData] = useState(datatotal);
   const [filter, setFilter] = useState(false);
-  const [title, setTitle] = useState("");
-  const [city, setCity] = useState("");
-  const [country, setCountry] = useState("");
-  // filter states  
-  const [postingdate, setPostingDate] = useState("all");
-  const [requirement, setRequirement] = useState("");
-  const [jobType, setJobType] = useState("");
-  const [employment, setEmployment] = useState("");
-  
-// pagination  
+  const [title, setTitle] = useState('');
+  const [city, setCity] = useState('');
+  const [country, setCountry] = useState('');
+  const [postingdate, setPostingDate] = useState('all');
+  const [requirement, setRequirement] = useState('');
+  const [jobType, setJobType] = useState('');
+  const [employment, setEmployment] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [Loading, setLoading] = useState(false);
+  const [apidata, setapidata] = useState(false);
+  const [expandedDescriptions, setExpandedDescriptions] = useState<Record<number, boolean>>({});
 
-  const [currentPage,setCurrentPage] = useState(1);
-  const [Loading,setLoading] = useState(false);
+
 
   const options = {
     method: 'GET',
@@ -48,52 +48,77 @@ function Page() {
       'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
     }
   };
+  let propsForVedar = {
+    search:options.params.query,
+    show : apidata,
+    }
 
-  const searchSubmit = async (e?: any) => {
-    setLoading(true)
-    if (e) e.preventDefault();
-    setData([]); 
+  const searchSubmit = async (e?:any) => {
+   if(e) e.preventDefault();
+    setLoading(true);
+    setData([]);
     if (!title || !country || !city) {
       toast.error('These Fields are required');
-    setLoading(false);
+      setLoading(false);
       return;
     }
     try {
       const response = await axios.request(options);
       if (!response) {
-        alert("Something went wrong");
-    setLoading(false);
+        alert('Something went wrong');
+        setLoading(false);
         return;
       }
-      
+
       const notdata = response.data;
       const finaldata = notdata.data;
-      setData(finaldata); 
-        console.log(notdata);
-    setLoading(false);
-
-    } catch (error:any) {
-      // throw error.message;
-      console.log(error);
+      setData(finaldata);
       
+     if(finaldata.length === 0){
+          setapidata(true)
+          setLoading(false);
+          return;
+        }	
+        
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
     }
   };
-  
+
   const moreFilter = () => {
     setFilter(true);
   };
-  const prev = () => {
-    setCurrentPage(currentPage - 1)  
-    searchSubmit(); 
 
-  }
+  const prev = () => {
+    setCurrentPage(currentPage - 1);
+    searchSubmit();
+  };
+
   const next = () => {
-    setCurrentPage(currentPage + 1)
-    searchSubmit(); 
-  }
+    setCurrentPage(currentPage + 1);
+    searchSubmit();
+  };
+  const toggleDescription = (index: any) => {
+    setExpandedDescriptions((prevDescriptions) => {
+      const updatedDescriptions = { ...prevDescriptions };
+      updatedDescriptions[index] = !updatedDescriptions[index];
+      return updatedDescriptions;
+    });
+  };
+  
+  const showLess = (index: number) => {
+    setExpandedDescriptions((prevDescriptions) => {
+      const updatedDescriptions = { ...prevDescriptions };
+      updatedDescriptions[index] = false;
+      return updatedDescriptions;
+    });
+  };
+  
+  
   
 
-  return   (
+  return (
     <div className='min-h-screen flex flex-col items-center w-full'>
       <div className="search w-11/12  lg:w-8/12 mt-8 flex flex-col items-center ">
         <form onSubmit={searchSubmit} className="flex items-center flex-col gap-y-5 justify-center flex-wrap">   
@@ -177,43 +202,67 @@ function Page() {
       {data.length>0 ? 
        <div className="Maincard flex flex-row flex-wrap gap-x-10 gap-y-6  justify-center ">
 
-{
-    data.map((item:any, index:any) => (
-          <div key={index} id={item.job_id} className='Card-item w-12/12 md:w-5/12 bg-slate-50 border border-emerald-50 rounded-lg px-4 py-5'>
-           <div className='top flex justify-between '>
-           <p>{item.job_posted_at_datetime_utc.substring(0, 10)}</p>
+{data.map((item:any, index:any) => (
+  <div key={index} id={item.job_id} className='Card-item w-11/12 md:w-5/12  bg-slate-50 border border-emerald-50 rounded-lg px-4 py-5'>
+   <div className='top flex justify-between '>
+     <p>{item.job_posted_at_datetime_utc.substring(0, 10)}</p>
 
-           {item.job_is_remote?<span className='bg-emerald-500 px-2 py-1 rounded-xl text-white font-semibold box-border' >Remote</span>:<span className='bg-emerald-500 px-2 py-1 rounded-xl text-white font-semibold box-border' >OnSite</span> }
-           </div>
-        <Link href={`/jobdetail/${item.job_id}`}>   <h1 className='text-xl font-semibold hover:underline mt-3'>{item.job_title}</h1></Link> 
-            <div className='company flex justify-between px-3 mt-2  text-gray-600'>
-            <span>{item.employer_name}</span>
-              <span>{item.job_city}</span>
-
-            </div>
-            <p className='mt-4'>{item.job_description.length > 150 ?  `${item.job_description.substring(0,134)}...`: item.job_description }</p>
-
-            <div className="flex gap-4 mt-8">
-
-<Link href={item.job_apply_link} target='_blank' className="px-6 py-2 min-w-[120px] text-center text-white bg-emerald-500  border border-emerald-500  rounded active:text-violet-500 hover:bg-transparent hover:text-emerald-500  focus:outline-none focus:ring"
-  >
-  Apply Now
-</Link>
-
-<Link className="px-6 py-2 min-w-[120px] text-center text-emerald-500  border border-emerald-500  rounded hover:bg-emerald-500  hover:text-white active:bg-indigo-500 focus:outline-none focus:ring"
- href={`/jobdetail/${item.job_id}`}>
-  view
-</Link>
-
+     {item.job_is_remote?<span className='bg-emerald-500 px-2 py-1 rounded-xl text-white font-semibold box-border' >Remote</span>:<span className='bg-emerald-500 px-2 py-1 rounded-xl text-white font-semibold box-border' >OnSite</span> }
+   </div>
+   <Link href={`/jobdetail/${item.job_id}`}>   
+     <h1 className='text-xl font-semibold hover:underline mt-3'>{item.job_title}</h1>
+   </Link> 
+   <div className='company flex justify-between px-3 mt-2  text-gray-600'>
+     <span>{item.employer_name}</span>
+     <span>{item.job_city}</span>
+   </div>
+   <div className='mt-4 text-sm md:text-base whitespace-pre-wrap'>
+  <p>
+    {expandedDescriptions[index] ? (
+      <>
+        {item.job_description}
+        {item.job_description.length > 150 && (
+          <span
+            onClick={() => showLess(index)}
+            className='text-lg font-semibold block cursor-pointer text-emerald-800'
+          >
+             Show Less
+          </span>
+        )}
+      </>
+    ) : (
+      <>
+        {item.job_description.length > 150 ? (
+          <>
+            {item.job_description.substring(0, 50)}
+            <span
+              onClick={() => toggleDescription(index)}
+              className='text-lg font-semibold cursor-pointer text-emerald-800'
+            >
+              ... Read More
+            </span>
+          </>
+        ) : (
+          item.job_description
+        )}
+      </>
+    )}
+  </p>
 </div>
-            
+
+
+
+   <div className=" mt-8">
+     <Link href={ item.job_apply_link} target='_blank'>
+       <ButtonApply/>
+     </Link>
+   </div>
+  </div>
+))}
+
 
           </div>
- ))
-}
-
-          </div>
- : <Vedar/>}
+ :<Vedar  {...propsForVedar}  />}
      </div>
 }
 
@@ -222,7 +271,7 @@ function Page() {
       { currentPage===1 ? "" : 
   <button onClick={prev  } className="flex items-center justify-center px-4 h-10 me-3 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
     <svg className="w-3.5 h-3.5 me-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-      <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" stroke-width="2" d="M13 5H1m0 0 4 4M1 5l4-4"/>
+      <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 5H1m0 0 4 4M1 5l4-4"/>
     </svg>
     Previous
   </button>
@@ -232,7 +281,7 @@ function Page() {
 <button  onClick={next} className="flex items-center justify-center px-4 h-10 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
     Next
     <svg className="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-      <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+      <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
     </svg>
   </button>
   : ""
