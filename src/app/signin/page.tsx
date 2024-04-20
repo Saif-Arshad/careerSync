@@ -37,6 +37,19 @@ const submitform = (e:any) => {
 	}
 	try {
 		const postinfData = async ()=>{
+			const checkAlready = await fetch ('/api/Authentication/userexist',{
+				method:'POST',
+				headers:{
+					'Content-Type':'application/json'
+				},
+				body:JSON.stringify({email})
+			});
+			const { userExists } = await checkAlready.json();
+			if (userExists) {
+				toast.error("User already exist");
+				return;
+			}
+		
 			const res = await fetch('/api/Authentication/signin',{
 				method:'POST',
 				headers:{
