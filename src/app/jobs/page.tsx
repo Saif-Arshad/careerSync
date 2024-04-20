@@ -9,6 +9,7 @@ import React from 'react';
 // import jsonData from '../../file.json'
 import axios from 'axios';
 import { CgAddR } from "react-icons/cg";
+import Vedar from '@/Components/Vedar/Vedar';
 import toast from 'react-hot-toast';
 
 function Page() { 
@@ -19,7 +20,7 @@ function Page() {
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
   // filter states  
-  const [postingdate, setPostingDate] = useState("");
+  const [postingdate, setPostingDate] = useState("all");
   const [requirement, setRequirement] = useState("");
   const [jobType, setJobType] = useState("");
   const [employment, setEmployment] = useState("");
@@ -66,8 +67,9 @@ function Page() {
         console.log(notdata);
         
     } catch (error:any) {
-      throw error.message;
-     
+      // throw error.message;
+      console.log(error);
+      
     }
   };
   
@@ -75,10 +77,14 @@ function Page() {
     setFilter(true);
   };
   const prev = () => {
-    setCurrentPage(currentPage - 1)      
+    setCurrentPage(currentPage - 1)  
+    // searchSubmit 
+
   }
   const next = () => {
     setCurrentPage(currentPage + 1)
+    // searchSubmit 
+
 
   }
   
@@ -203,14 +209,14 @@ function Page() {
 }
 
           </div>
- : "hello"}
+ : <Vedar/>}
      </div>
 
 
 
      <div className="flex mt-20">
       { currentPage===1 ? "" : 
-  <button onClick={prev} className="flex items-center justify-center px-4 h-10 me-3 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+  <button onClick={prev  } className="flex items-center justify-center px-4 h-10 me-3 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
     <svg className="w-3.5 h-3.5 me-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5H1m0 0 4 4M1 5l4-4"/>
     </svg>
