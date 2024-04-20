@@ -2,7 +2,9 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import '@/Stylesheets/logo.css'
+import { GoSearch } from "react-icons/go";
 import { BiSearchAlt } from "react-icons/bi";
+import { AiOutlineHome } from "react-icons/ai";
 // import Image from 'next/image';
 
 function Header() {
@@ -86,24 +88,26 @@ function Header() {
               <li>
                 <Link
                   href="/"
-                  className="block py-2 pl-3 pr-4 text-gray-700 b rounded lg:bg-transparent lg:hover:text-emerald-500 lg:p-0 dark:text-white"
+                  className="block py-2 font-semibold pl-3 pr-4 text-gray-700 b rounded lg:bg-transparent lg:hover:text-emerald-500 lg:p-0 dark:text-white"
                   aria-current="page"
                 >
+                       <span className='flex items-center gap-x-1'>
+
+                  <AiOutlineHome size={20}/>
                   Home
+                  </span>
                 </Link>
               </li>
               <li>
                     <Link href="/jobs"
-                        className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-emerald-500 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Jobs</Link>
+                        className="block font-semibold py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-emerald-500 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">
+                       <span className='flex items-center gap-x-1'>
+                         <GoSearch size={20} />
+                          Search Your Next Job
+                          </span>
+                          </Link>
                 </li>
-                <li>
-                    <Link href="/about"
-                        className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-emerald-500 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">About</Link>
-                </li>
-                <li>
-                    <Link href="/faq"
-                        className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-emerald-500 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">FAQ&apos;s</Link>
-                </li>
+              
              
             </ul>
           </div>
