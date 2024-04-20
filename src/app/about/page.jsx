@@ -19,14 +19,6 @@ But the way we do it? That’s not so simple.
 Every day, we’re inspired by a vision to make positive workplace change through radical transparency. Through the products we make and the communities we create, we’re breaking down barriers that lead to discrimination, pay gaps, and toxic work environments. Together, we’re fostering a world where people have the support and resources they need to find a job that loves them back.
       </p>
 
-      <div className='flex flex-col items-center'>
-      <h1 className='text-xl mt-20 md:text-4xl font-semibold md:font-bold'>What we do</h1>
-      <p className='mt-9 w-12/12 md:w-7/12 text-center'>Wherever you are on your career journey, CareerSync makes it easier for workers and companies to find the perfect match.</p>
-      <p className='text-center mt-4 w-12/12 md:w-10/12'>
-      At careerSync, our mission is to help people get jobs. We have more than ~13,000 global employees passionately pursuing this purpose and improving the recruitment journey through real stories and data. We foster a collaborative workplace that strives to create the best experience for job seekers.
-      </p>
-      </div>
-      
       <section className="bg-white py-0 dark:bg-dark ">
       <h1 className='text-xl mt-20 md:text-4xl text-center font-semibold md:font-bold'>Trusted By World Class Companies</h1>
         
@@ -60,6 +52,15 @@ Every day, we’re inspired by a vision to make positive workplace change throug
           </div>
         </div>
         </section>
+      <div className='flex flex-col items-center'>
+      <h1 className='text-xl mt-20 md:text-4xl font-semibold md:font-bold'>What we do</h1>
+      <p className='mt-9 w-12/12 md:w-7/12 text-center'>Wherever you are on your career journey, CareerSync makes it easier for workers and companies to find the perfect match.</p>
+      <p className='text-center mt-4 w-12/12 md:w-10/12'>
+      At careerSync, our mission is to help people get jobs. We have more than ~13,000 global employees passionately pursuing this purpose and improving the recruitment journey through real stories and data. We foster a collaborative workplace that strives to create the best experience for job seekers.
+      </p>
+      </div>
+      
+   
         <div
    className="max-w-4xl mx-auto py-16 px-4 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 lg:flex lg:items-center lg:justify-between">
     <h2 className="text-4xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
