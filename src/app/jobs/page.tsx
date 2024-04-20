@@ -47,8 +47,9 @@ function Page() {
     }
   };
 
-  const searchSubmit = async (e:any) => {
-    e.preventDefault();
+  const searchSubmit = async (e?: any) => {
+    if (e) e.preventDefault();
+    setData([]); 
     if (!title || !country || !city) {
       toast.error('These Fields are required');
       return;
@@ -78,14 +79,12 @@ function Page() {
   };
   const prev = () => {
     setCurrentPage(currentPage - 1)  
-    // searchSubmit 
+    searchSubmit(); 
 
   }
   const next = () => {
     setCurrentPage(currentPage + 1)
-    // searchSubmit 
-
-
+    searchSubmit(); 
   }
   
 
