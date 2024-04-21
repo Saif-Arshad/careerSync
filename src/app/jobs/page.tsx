@@ -10,12 +10,12 @@ import axios from 'axios';
 import Loader from '@/Components/Loader/Loader';
 import ButtonApply from '@/Components/Apply/buttonApply';
 import Vedar from '@/Components/Vedar/Vedar';
-import datatotal from '../../file.json'
+// import datatotal from '../../file.json'
 import toast from 'react-hot-toast';
 
 function Page() {
-  // const [data, setData] = useState([]);
-  const [data, setData] = useState(datatotal);
+  const [data, setData] = useState([]);
+  // const [data, setData] = useState(datatotal);
   const [filter, setFilter] = useState(false);
   const [title, setTitle] = useState('');
   const [city, setCity] = useState('');
@@ -28,13 +28,14 @@ function Page() {
   const [Loading, setLoading] = useState(false);
   const [apidata, setapidata] = useState(false);
   const [expandedDescriptions, setExpandedDescriptions] = useState<Record<number, boolean>>({});
-  const [jobDetail,setjobDetail]= useState([]);
+  const [jobDetail, setJobDetail] = useState<any>([]);
+
 
 
 
   const options = {
     method: 'GET',
-    url: 'https://jsearch.p.rapidapi.com/search',
+    url: process.env.NEXT_PUBLIC_API,
     params: {
       query: `${title} in ${city}, ${country}`,
       page: currentPage,
@@ -45,8 +46,8 @@ function Page() {
       job_requirements: requirement
     },
     headers: {
-      'X-RapidAPI-Key': '4090cb66a7msha88ef8c2c823903p14d462jsn6331b31644fe',
-      'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
+      'X-RapidAPI-Key': process.env.NEXT_PUBLIC_API_KEY,
+      'X-RapidAPI-Host': process.env.NEXT_PUBLIC_API_HOST
     }
   };
   let propsForVedar = {
@@ -56,6 +57,7 @@ function Page() {
 
   const searchSubmit = async (e?:any) => {
    if(e) e.preventDefault();
+
     setLoading(true);
     setData([]);
     if (!title || !country || !city) {
@@ -73,14 +75,15 @@ function Page() {
 
       const notdata = response.data;
       const finaldata = notdata.data;
-      setData(finaldata);
-      
-     if(finaldata.length === 0){
-          setapidata(true)
-          setLoading(false);
-          return;
-        }	
-        
+      if(finaldata.length === 0){
+        setapidata(true)
+        setLoading(false);
+        return;
+      }	
+        if (finaldata.length > 0) {
+          setJobDetail(finaldata[0]); 
+        }
+      setData(finaldata);        
       setLoading(false);
     } catch (error) {
       console.log(error);
@@ -116,15 +119,16 @@ function Page() {
     });
   };
   const detail = async (id: string) => {
-    toast.success(id);
-    const selectedJob = data.filter((item: any) => item.job_id === id);
+    const selectedJob: any = data.find((item: any) => item.job_id === id);
     if (selectedJob) {
-        setjobDetail(selectedJob);
+      setJobDetail(selectedJob); 
     } else {
-        toast.error("Job not found");
+      toast.error("Job not found");
     }
-};
-  
+  };
+
+    console.log(jobDetail);
+   
 
   return (
     <div className='min-h-screen flex flex-col items-center w-full'>
@@ -257,7 +261,7 @@ function Page() {
     )}
   </p>
   <p className='hidden md:flex'>
-  {item.job_description.length > 150 ?`${ item.job_description.slice(0,100)}....` : item.job_description}
+  {item.job_description.length > 150 ?`${ item.job_description.slice(0,50)}....` : item.job_description}
 
   </p>
 </div>
@@ -280,7 +284,40 @@ function Page() {
 ))}
 </div>
 <div className='w-8/12 rounded-lg hidden md:flex bg-slate-50 box-border py-7 px-7'>
-  <h1>Hello</h1>
+  {/* {Object.keys(jobDetail).length > 0 ? */}
+  <div className='w-full '>
+  <h1 className='text-4xl font-extrabold'>
+    {jobDetail.job_title}</h1>
+  
+
+  <h2 className='flex item center mt-3 text-lg font-semibold '>Job Type :  <span className='font-bold ml-2'>
+  {jobDetail.job_is_remote? "Remote" : "OnSite"}
+  </span>
+     </h2>
+  <h2 className='flex item center mt-3 text-lg font-semibold '>Company :  <span className='font-bold ml-2'>
+  {jobDetail.employer_name}
+  </span>
+     </h2>
+  <h2 className='flex item center mt-3 text-lg font-semibold '>Employment :  <span className='font-bold ml-2'>
+  {jobDetail.job_employment_type}
+  </span>
+     </h2>
+  <h2 className='flex item center mt-3 text-lg font-semibold '>City :  <span className='font-bold ml-2'>
+  {jobDetail.job_city}
+  </span>
+     </h2>
+     <p className='mt-4 md:text-base whitespace-pre-wrap text-lg'>
+     {jobDetail.job_description}
+     </p>
+     <div className='mt-6'>
+     <Link href={jobDetail.job_apply_link} target='_blank'>
+       <ButtonApply content="Apply Now"/>
+     </Link>
+     </div>
+ 
+
+  </div>
+  {/* :"Hello, world	"} */}
 </div>
           </div>
  :<Vedar  {...propsForVedar}  />}
