@@ -15,8 +15,8 @@ import Link from 'next/link'
 
 export default function page() {
   return (
-    <div className='min-h-screen flex items-center w-full overflow-x-hidden justify-around'>
-<section className=" bg-white">
+    <div className='min-h-screen  flex items-center w-full overflow-x-hidden justify-around'>
+<section className=" bg-white w-full">
     <div className='w-full main-hero box-border py-24 md:py-32 min-h-screen'>
     <div className="px-12 mx-auto max-w-7xl ">
         <div className="w-full mx-auto text-left md:w-11/12 xl:w-9/12 md:text-center">
