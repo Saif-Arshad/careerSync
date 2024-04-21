@@ -226,7 +226,7 @@ export default function page() {
         className="text-center lg:text-left max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
         <h3 className="text-2xl md:text-3xl leading-9 font-bold md:font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-tight">
             Ready to Open Doors to New Opportunities <br/>
-            <span className="text-emerald-500 font-semibold md:font-bold text-xl md:text-2xl ">Create CareerSync Account.</span>
+            <span className="text-emerald-500 font-semibold text-xl ">Create CareerSync Account.</span>
         </h3>
         <div className="justify-center lg:justify-left mt-8 flex lg:flex-shrink-0 lg:mt-0">
             <div className="inline-flex">

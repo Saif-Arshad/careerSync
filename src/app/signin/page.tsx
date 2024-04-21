@@ -67,9 +67,11 @@ const submitform = (e:any) => {
 				body:JSON.stringify({name,email,password})
 			})
 			if (res.ok) {
-				router.push("/");
+				toast.success("Account Created Sucessfully")
+				router.push("/login");
 			  }
 			  else {
+				toast.error("Something went wrong");
 				console.log("User Failed");
 			  }
 	setloader(false)
@@ -82,7 +84,7 @@ const submitform = (e:any) => {
 			throw error.message
 			
 	}
-	console.log(name, password,email,Cpassword);
+
 	
 	};
 	const PasswordVisibility = () => {
@@ -215,10 +217,11 @@ const submitform = (e:any) => {
 								href="/login">
 								Already have an account? LogIn!
 							</Link>
-							<a className="inline-block text-sm text-blue-500 dark:text-blue-500 align-baseline hover:text-blue-800"
-								href="#">
+							<Link className="inline-block text-sm text-blue-500 dark:text-blue-500 align-baseline hover:text-blue-800"
+								href="/forget-password">
+							
 								Forgot Password?
-							</a>
+							</Link>
 						</div>
 					</form>
 				</div>

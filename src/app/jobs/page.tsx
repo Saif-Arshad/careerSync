@@ -10,12 +10,12 @@ import axios from 'axios';
 import Loader from '@/Components/Loader/Loader';
 import ButtonApply from '@/Components/Apply/buttonApply';
 import Vedar from '@/Components/Vedar/Vedar';
-// import datatotal from '../../file.json'
+import datatotal from '../../file.json'
 import toast from 'react-hot-toast';
 
 function Page() {
-  const [data, setData] = useState([]);
-  // const [data, setData] = useState(datatotal);
+  // const [data, setData] = useState([]);
+  const [data, setData] = useState(datatotal);
   const [filter, setFilter] = useState(false);
   const [title, setTitle] = useState('');
   const [city, setCity] = useState('');
@@ -28,6 +28,7 @@ function Page() {
   const [Loading, setLoading] = useState(false);
   const [apidata, setapidata] = useState(false);
   const [expandedDescriptions, setExpandedDescriptions] = useState<Record<number, boolean>>({});
+  const [jobDetail,setjobDetail]= useState([]);
 
 
 
@@ -114,8 +115,15 @@ function Page() {
       return updatedDescriptions;
     });
   };
-  
-  
+  const detail = async (id: string) => {
+    toast.success(id);
+    const selectedJob = data.filter((item: any) => item.job_id === id);
+    if (selectedJob) {
+        setjobDetail(selectedJob);
+    } else {
+        toast.error("Job not found");
+    }
+};
   
 
   return (
@@ -198,26 +206,26 @@ function Page() {
         </form>
       </div>
           {Loading ? <Loader/> :
-     <div className='w-11/12 mt-10 flex justify-center items-center '>
+     <div className='w-12/12 mt-10 flex  '>
       {data.length>0 ? 
-       <div className="Maincard flex flex-row flex-wrap gap-x-10 gap-y-6  justify-center ">
+     <div className='w-12/12 mt-10 flex  '>
+
+       <div className="Maincard w-full justify-center  md:w-4/12 flex flex-row flex-wrap gap-y-6 gap-x-3  ">
 
 {data.map((item:any, index:any) => (
-  <div key={index} id={item.job_id} className='Card-item w-11/12 md:w-5/12  bg-slate-50 border border-emerald-50 rounded-lg px-4 py-5'>
+  <div key={index} id={item.job_id} className='Card-item w-11/12 bg-slate-50 border border-emerald-50 rounded-lg px-4 py-4'>
    <div className='top flex justify-between '>
      <p>{item.job_posted_at_datetime_utc.substring(0, 10)}</p>
 
      {item.job_is_remote?<span className='bg-emerald-500 px-2 py-1 rounded-xl text-white font-semibold box-border' >Remote</span>:<span className='bg-emerald-500 px-2 py-1 rounded-xl text-white font-semibold box-border' >OnSite</span> }
    </div>
-   <Link href={`/jobdetail/${item.job_id}`}>   
-     <h1 className='text-xl font-semibold hover:underline mt-3'>{item.job_title}</h1>
-   </Link> 
+     <h1 className='text-xl font-semibold mt-3'>{item.job_title}</h1>
    <div className='company flex justify-between px-3 mt-2  text-gray-600'>
      <span>{item.employer_name}</span>
      <span>{item.job_city}</span>
    </div>
-   <div className='mt-4 text-sm md:text-base whitespace-pre-wrap'>
-  <p>
+   <div className='mt-4 text-sm md:text-base whitespace-pre-wrap '>
+  <p className='md:hidden' >
     {expandedDescriptions[index] ? (
       <>
         {item.job_description}
@@ -248,19 +256,32 @@ function Page() {
       </>
     )}
   </p>
+  <p className='hidden md:flex'>
+  {item.job_description.length > 150 ?`${ item.job_description.slice(0,100)}....` : item.job_description}
+
+  </p>
 </div>
 
 
 
    <div className=" mt-8">
+    <div className='md:hidden'>
      <Link href={ item.job_apply_link} target='_blank'>
-       <ButtonApply/>
+       <ButtonApply content="Apply Now"/>
      </Link>
+     </div>
+    <div className='hidden md:flex'>
+      <div onClick={()=>detail(item.job_id)}>
+       <ButtonApply content="More Detail"/>
+       </div>
+     </div>
    </div>
   </div>
 ))}
-
-
+</div>
+<div className='w-8/12 rounded-lg hidden md:flex bg-slate-50 box-border py-7 px-7'>
+  <h1>Hello</h1>
+</div>
           </div>
  :<Vedar  {...propsForVedar}  />}
      </div>

@@ -46,6 +46,7 @@ const submitform = (e:any) => {
 
 			return
 		  }
+		  toast.success('login successful redirecting to Job Section')
 		  router.push('/jobs')
 		}
 		  func()
@@ -54,7 +55,6 @@ const submitform = (e:any) => {
 		  console.log(error);
 		  
 		}
-	console.log(name, password,email);
 	
 	};
 	const togglePasswordVisibility = () => {
@@ -154,10 +154,10 @@ const submitform = (e:any) => {
 								href="/signin">
 								Don&apos;t  have an account? SignIn!
 							</Link>
-							<a className="inline-block text-sm text-blue-500 dark:text-blue-500 align-baseline hover:text-blue-800"
-								href="#">
+							<Link className="inline-block text-sm text-blue-500 dark:text-blue-500 align-baseline hover:text-blue-800"
+								href="/forget-password">
 								Forgot Password?
-							</a>
+							</Link>
 						</div>
 					</form>
 				</div>
@@ -167,7 +167,5 @@ const submitform = (e:any) => {
 </div>
   )
 }
-function ifii() {
-	throw new Error('Function not implemented.')
-}
+
 

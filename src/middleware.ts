@@ -10,7 +10,8 @@ if( token &&
     (
         url.pathname === '/signin' ||
         url.pathname === '/login' ||
-        url.pathname === '/create-account'
+        url.pathname === '/create-account'||
+        url.pathname === '/forget-password'
     )
 ){
     return NextResponse.redirect(new URL('/jobs', request.url))
