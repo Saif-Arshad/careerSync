@@ -131,7 +131,7 @@ function Page() {
    
 
   return (
-    <div className='min-h-screen flex flex-col items-center w-full'>
+    <div className='min-h-screen scroll-smooth flex flex-col items-center w-full'>
       <div className="search w-11/12  lg:w-8/12 mt-8 flex flex-col items-center ">
         <form onSubmit={searchSubmit} className="flex items-center flex-col gap-y-5 justify-center flex-wrap">   
           <div className='flex items-center gap-x-3 gap-y-2 justify-center flex-wrap'>
@@ -228,7 +228,7 @@ function Page() {
      <span>{item.employer_name}</span>
      <span>{item.job_city}</span>
    </div>
-   <div className='mt-4 text-sm md:text-base whitespace-pre-wrap '>
+   <div className='mt-4 text-sm md:text-base md:whitespace-normal whitespace-pre-wrap '>
   <p className='md:hidden' >
     {expandedDescriptions[index] ? (
       <>
@@ -275,15 +275,17 @@ function Page() {
      </Link>
      </div>
     <div className='hidden md:flex'>
+      <Link className='scroll-smooth' href={'#detail'}>
       <div onClick={()=>detail(item.job_id)}>
        <ButtonApply content="More Detail"/>
        </div>
+       </Link>
      </div>
    </div>
   </div>
 ))}
 </div>
-<div className='w-8/12 rounded-lg hidden md:flex bg-slate-50 box-border py-7 px-7'>
+<div id='detail' className='w-8/12 rounded-lg hidden md:flex bg-slate-50 box-border py-7 px-7'>
   {/* {Object.keys(jobDetail).length > 0 ? */}
   <div className='w-full '>
   <h1 className='text-4xl font-extrabold'>
