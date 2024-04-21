@@ -10,13 +10,15 @@ import PersonFour from '../../public/image/Users/four.jpeg'
 import PersonFive from '../../public/image/Users/five.jpeg'
 import PersonSix from '../../public/image/Users/six.jpeg'
 import Image from 'next/image'
+import '@/Stylesheets/Home.css'
 import Link from 'next/link'
 
 export default function page() {
   return (
-    <div className='min-h-screen flex items-center overflow-x-hidden justify-around'>
-<section className="pt-24 bg-white">
-    <div className="px-12 mx-auto max-w-7xl">
+    <div className='min-h-screen flex items-center w-full overflow-x-hidden justify-around'>
+<section className=" bg-white">
+    <div className='w-full main-hero box-border py-24 md:py-32 min-h-screen'>
+    <div className="px-12 mx-auto max-w-7xl ">
         <div className="w-full mx-auto text-left md:w-11/12 xl:w-9/12 md:text-center">
             <h1 className="mb-8 w-full text-3xl sm:text-4xl font-extrabold leading-none tracking-normal text-gray-900 md:text-6xl md:tracking-tight">
                 <span>Find Your</span> <span className="block w-full py-2 text-transparent bg-clip-text leading-12 bg-gradient-to-r from-green-400 to-purple-600 lg:inline">Dream Job</span> <span>Faster With Us</span>
@@ -36,6 +38,7 @@ export default function page() {
             </div>
         </div>
 
+    </div>
     </div>
     <section className="bg-white py-0 dark:bg-dark ">
         
