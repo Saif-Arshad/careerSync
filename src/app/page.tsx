@@ -40,7 +40,7 @@ export default function page() {
 
     </div>
     </div>
-    <section className="bg-white py-0 dark:bg-dark ">
+    <section className="bg-white py-0 ">
         
         <div className="container mx-auto">
           <div className="flex flex-wrap -mx-4">
@@ -121,12 +121,12 @@ export default function page() {
     </div>
 
 </section>
-<div className="text-gray-600 dark:text-gray-300 pt-8 dark:bg-gray-900" id="reviews">
+<div className="text-gray-600  pt-8 " id="reviews">
 
     <div className="max-w-7xl mx-auto px-6 md:px-12 xl:px-6">
 
         <div className="mb-10 space-y-4 px-6 md:px-0 flex w-full justify-center">
-            <h2 className="text-center text-2xl w-full md:w-2/4 font-bold text-gray-800 dark:text-white md:text-4xl">
+            <h2 className="text-center text-2xl w-full md:w-2/4 font-bold text-gray-800 md:text-4xl">
                 We have some Fans around the World.
             </h2>
         </div>
@@ -136,12 +136,12 @@ export default function page() {
 
 
             <div
-                className="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
+                className="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white shadow-2xl shadow-gray-600/10 ">
                 <div className="flex gap-4">
                     <Image className="w-12 h-12 rounded-full object-cover" src={PersonOne}  alt="user avatar" width="400" height="400" loading="lazy"/>
                     <div>
-                        <h6 className="text-lg font-medium text-gray-700 dark:text-white">Daniella Doe</h6>
-                        <p className="text-sm text-gray-500 dark:text-gray-300">Project Manager</p>
+                        <h6 className="text-lg font-medium text-gray-700">Daniella Doe</h6>
+                        <p className="text-sm text-gray-500 ">Project Manager</p>
                     </div>
                 </div>
                 <p className="mt-8">CareerSync has been an absolute game-changer for me. As someone who was feeling overwhelmed by the job search process, I can not emphasize enough how much this platform simplified everything. The user interface is intuitive, making it incredibly easy to navigate through the plethora of job listings. I found my dream job within days of signing up, and I truly believe it was all thanks to CareerSync efficient search algorithm. 
@@ -150,12 +150,12 @@ export default function page() {
 
 
             <div
-                className="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
+                className="aspect-auto p-8 border border-gray-100 rounded-3xl bg-whiteshadow-2xl shadow-gray-600/10 ">
                 <div className="flex gap-4">
                     <Image className="w-12 h-12 rounded-full object-cover"src={PersonTwo}  alt="user avatar" width="200" height="200" loading="lazy"/>
                     <div>
-                        <h6 className="text-lg font-medium text-gray-700 dark:text-white">Jane doe</h6>
-                        <p className="text-sm text-gray-500 dark:text-gray-300">Marketing</p>
+                        <h6 className="text-lg font-medium text-gray-700 ">Jane doe</h6>
+                        <p className="text-sm text-gray-500 ">Marketing</p>
                     </div>
                 </div>
                 <p className="mt-8">Within a week of using CareerSync, I landed a job that perfectly matched my skills and career goals. I was impressed by the wide range of job listings available on the platform
@@ -164,12 +164,12 @@ export default function page() {
 
 
             <div
-                className="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
+                className="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white shadow-2xl shadow-gray-600/10">
                 <div className="flex gap-4">
                     <Image className="w-12 h-12 rounded-full object-cover" src={PersonThree}  alt="user avatar" width="200" height="200" loading="lazy"/>
                     <div>
-                        <h6 className="text-lg font-medium text-gray-700 dark:text-white">Yanick Doe</h6>
-                        <p className="text-sm text-gray-500 dark:text-gray-300">Developer</p>
+                        <h6 className="text-lg font-medium text-gray-700 ">Yanick Doe</h6>
+                        <p className="text-sm text-gray-500 ">Developer</p>
                     </div>
                 </div>
                 <p className="mt-8">I was impressed by the wide range of job listings available on the platform, covering various industries and positions. The filters were particularly useful; I could easily narrow down my search based on location, industry, and job type. CareerSync made the entire job hunting process a breeze, and I am grateful for the opportunity it provided me.
@@ -178,12 +178,12 @@ export default function page() {
 
 
             <div
-                className="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
+                className="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white shadow-2xl shadow-gray-600/10 ">
                 <div className="flex gap-4">
                     <Image className="w-12 h-12 rounded-full object-cover" src={PersonFour}  alt="user avatar" width="200" height="200" loading="lazy"/>
                     <div>
-                        <h6 className="text-lg font-medium text-gray-700 dark:text-white">Jane Doe</h6>
-                        <p className="text-sm text-gray-500 dark:text-gray-300">Mobile dev</p>
+                        <h6 className="text-lg font-medium text-gray-700">Jane Doe</h6>
+                        <p className="text-sm text-gray-500 ">Mobile dev</p>
                     </div>
                 </div>
                 <p className="mt-8">CareerSync exceeded my expectations in every way possible. Not only did it help me secure multiple interviews within a matter of weeks, but it also provided me with invaluable resources and support throughout the job search journey.
@@ -192,12 +192,12 @@ export default function page() {
 
 
             <div
-                className="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
+                className="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white shadow-2xl shadow-gray-600/10 ">
                 <div className="flex gap-4">
                     <Image className="w-12 h-12 rounded-full object-cover" src={PersonFive}  alt="user avatar" width="200" height="200" loading="lazy"/>
                     <div>
-                        <h6 className="text-lg font-medium text-gray-700 dark:text-white">Andy Doe</h6>
-                        <p className="text-sm text-gray-500 dark:text-gray-300">Manager</p>
+                        <h6 className="text-lg font-medium text-gray-700">Andy Doe</h6>
+                        <p className="text-sm text-gray-500 ">Manager</p>
                     </div>
                 </div>
                 <p className="mt-8"> As a recent graduate entering the job market, I was met with uncertainty and apprehension. However, CareerSync quickly alleviated my concerns and provided me with the confidence I needed to navigate the job search process successfully.
@@ -206,12 +206,12 @@ export default function page() {
 
 
             <div
-                className="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
+                className="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white shadow-2xl shadow-gray-600/10">
                 <div className="flex gap-4">
                     <Image className="w-12 h-12 rounded-full object-cover" src={PersonSix}  alt="user avatar" width="400" height="400" loading="lazy" />
                     <div>
-                        <h6 className="text-lg font-medium text-gray-700 dark:text-white">Yanndy Doe</h6>
-                        <p className="text-sm text-gray-500 dark:text-gray-300">Mobile dev</p>
+                        <h6 className="text-lg font-medium text-gray-700">Yanndy Doe</h6>
+                        <p className="text-sm text-gray-500">Mobile dev</p>
                     </div>
                 </div>
                 <p className="mt-8">CareerSync has simplified the job hunting process in ways I never thought possible. What I love most about the platform is its simplicity and effectiveness. Unlike other job search websites that overwhelm you with endless options, CareerSync provides a curated selection of job listings tailored to your preferences.

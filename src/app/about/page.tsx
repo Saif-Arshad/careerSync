@@ -19,7 +19,7 @@ But the way we do it? That’s not so simple.
 Every day, we’re inspired by a vision to make positive workplace change through radical transparency. Through the products we make and the communities we create, we’re breaking down barriers that lead to discrimination, pay gaps, and toxic work environments. Together, we’re fostering a world where people have the support and resources they need to find a job that loves them back.
       </p>
 
-      <section className="bg-white py-0 dark:bg-dark ">
+      <section className="bg-white py-0  ">
       <h1 className='text-2xl mt-20 md:text-4xl text-center font-semibold md:font-bold'>Trusted By World Class Companies</h1>
         
         <div className="container mx-auto">

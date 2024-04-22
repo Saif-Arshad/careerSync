@@ -112,11 +112,11 @@ const submitform = (e:any) => {
 
   return (
 
-<div className="min-h-screen white dark:bg-gray-900">
+<div className="min-h-screen white ">
 	<div className="mx-auto">
 		<div className="flex justify-center px-6 ">
 			<div className="w-full xl:w-3/4 lg:w-11/12 flex flex-col md:flex-row">
-				<div className="w-full h-auto bg-white dark:bg-gray-800 flex lg:w-5/12 justify-center rounded-l-lg">
+				<div className="w-full h-auto bg-white flex lg:w-5/12 justify-center rounded-l-lg">
 					<Image
 					src={signUpImage}
 					width={0}
@@ -128,18 +128,18 @@ const submitform = (e:any) => {
 
 
 					</div>
-				<div className="w-full lg:w-7/12 bg-white dark:bg-gray-700 p-5">
-					<h3 className="pt-4 text-lg md:text-2xl text-center text-emerald-700 font-bold dark:text-white">Create your  Account!</h3>
+				<div className="w-full lg:w-7/12 bg-white p-5">
+					<h3 className="pt-4 text-lg md:text-2xl text-center text-emerald-700 font-bold">Create your  Account!</h3>
 					<form
 					onSubmit={submitform} 
-					className="px-8 pt-6 pb-4 mb-0 bg-white dark:bg-gray-800 rounded">
+					className="px-8 pt-6 pb-4 mb-0 bg-white rounded">
 							<div className="mb-2  ">
-								<label className="block mb-2 text-sm text-semibold  text-black dark:text-white" htmlFor="firstName">
+								<label className="block mb-2 text-sm text-semibold  text-black " htmlFor="firstName">
                                     Full Name
                                 </label>
 								<input
 									onChange={(e:any)=>setname(e.target.value)}
-                                    className="w-full ring-1 ring-emerald-200  px-3 py-2 text-sm leading-tight text-gray-700 dark:text-white border rounded  appearance-none focus:outline-none focus:shadow-outline"
+                                    className="w-full ring-1 ring-emerald-200  px-3 py-2 text-sm leading-tight text-gray-700 border rounded  appearance-none focus:outline-none focus:shadow-outline"
                                     id="firstName"
                                     type="text"
                                     placeholder="Muhammad saif"
@@ -147,27 +147,27 @@ const submitform = (e:any) => {
 							</div>
 
 						<div className=" ">
-							<label className="block mb-2 text-sm text-semibold  text-black dark:text-white" htmlFor="email">
+							<label className="block mb-2 text-sm text-semibold  text-black" htmlFor="email">
                                 Email
                             </label>
 							<input
 									onChange={(e:any)=>setemail(e.target.value)}
 
-                                className="w-full ring-1 ring-emerald-200  px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-white border rounded  appearance-none focus:outline-none focus:shadow-outline"
+                                className="w-full ring-1 ring-emerald-200  px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded  appearance-none focus:outline-none focus:shadow-outline"
                                 id="email"
                                 type="email"
                                 placeholder="yourmail@gmail.com"
                             />
 						</div>
 						<div className="mb-4 md:mr-2 md:mb-0">
-								<label className="block mb-2 text-sm text-semibold  text-black dark:text-white" htmlFor="password">
+								<label className="block mb-2 text-sm text-semibold  text-black " htmlFor="password">
                                     Password
                                 </label>
 								<div className='flex relative items-start justify-center'>
 								<input
 									onChange={(e:any)=>setpassword(e.target.value)}
 									ref={passwordtype}
-								  className="w-full ring-1 ring-emerald-200  px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-white border  rounded  appearance-none focus:outline-none focus:shadow-outline"
+								  className="w-full ring-1 ring-emerald-200  px-3 py-2 mb-3 text-sm leading-tight text-gray-700  border  rounded  appearance-none focus:outline-none focus:shadow-outline"
                                     id="password"
                                     type="password"
                                     placeholder="******************"
@@ -178,14 +178,14 @@ const submitform = (e:any) => {
 								</div>
 							</div>
 							<div className="mb-4 md:mr-2 md:mb-0">
-								<label className="block mb-2 text-sm text-semibold  text-black dark:text-white" htmlFor="password">
+								<label className="block mb-2 text-sm text-semibold  text-black" htmlFor="password">
                                     confirm Password
                                 </label>
 								<div className='flex items-start relative justify-center'>
 								<input
 									onChange={(e:any)=>setCpassword(e.target.value)}
 									ref={Cpasswordtype}
-								  className="w-full ring-1 ring-emerald-200  px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-white border  rounded  appearance-none focus:outline-none focus:shadow-outline"
+								  className="w-full ring-1 ring-emerald-200  px-3 py-2 mb-3 text-sm leading-tight text-gray-700  border  rounded  appearance-none focus:outline-none focus:shadow-outline"
                                     id="password"
                                     type="password"
                                     placeholder="******************"
@@ -204,7 +204,7 @@ const submitform = (e:any) => {
 						<div className="mb-6 mt-5 text-center">
 							{loader ? <Loading/> : 
 							<button
-                                className="w-full px-4 py-2 font-bold text-white bg-emerald-700 rounded-full hover:bg-emerald-800 dark:bg-emerald-500 dark:text-white dark:hover:bg-blue-900 focus:outline-none focus:shadow-outline"
+                                className="w-full px-4 py-2 font-bold text-white bg-emerald-700 rounded-full hover:bg-emerald-800 focus:outline-none focus:shadow-outline"
                                 type="submit"
                             >
                                Create Account
@@ -213,11 +213,11 @@ const submitform = (e:any) => {
 						</div>
 						<hr className="mb-6 border-t" />
 						<div className=" flex flex-wrap justify-around flex-col sm:flex-row space-y-4 sm:space-y-0">
-							<Link className="inline-block text-sm text-blue-500 dark:text-blue-500 align-baseline hover:text-blue-800"
+							<Link className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
 								href="/login">
 								Already have an account? LogIn!
 							</Link>
-							<Link className="inline-block text-sm text-blue-500 dark:text-blue-500 align-baseline hover:text-blue-800"
+							<Link className="inline-block text-sm text-blue-500align-baseline hover:text-blue-800"
 								href="/forget-password">
 							
 								Forgot Password?

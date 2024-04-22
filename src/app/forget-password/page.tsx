@@ -85,7 +85,7 @@ export default function page() {
             setlaoder(false);
             setforget(true);
           } else {
-            toast.error("we cannot find user with Name " + name);
+            toast.error("The email you provided is already in use.");
             setlaoder(false);
             setforget(false);
             return;

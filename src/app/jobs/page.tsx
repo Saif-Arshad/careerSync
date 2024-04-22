@@ -136,26 +136,26 @@ function Page() {
         <form onSubmit={searchSubmit} className="flex items-center flex-col gap-y-5 justify-center flex-wrap">   
           <div className='flex items-center gap-x-3 gap-y-2 justify-center flex-wrap'>
             <div className="relative w-32 sm:w-40">
-              <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none  text-gray-500 dark:text-gray-400">
+              <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none  text-gray-500">
                 <ImLocation size={20} />
               </div>
-              <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} id="voice-search" className="bg-gray-50 border border-gray-300 text-gray-900 text-xs sm:text-sm rounded-md  focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Country name" />
+              <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} id="voice-search" className="bg-gray-50 border border-gray-300 text-gray-900 text-xs sm:text-sm rounded-md  focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 " placeholder="Country name" />
             </div>
             <div className="relative w-36 sm:w-52">
               <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd"></path></svg>
+                <svg aria-hidden="true" className="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd"></path></svg>
               </div>
-              <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} id="voice-search" className="rounded-md bg-gray-50 border border-gray-300 text-gray-900 text-xs sm:text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Job Title or Keyword" />
+              <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} id="voice-search" className="rounded-md bg-gray-50 border border-gray-300 text-gray-900 text-xs sm:text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 " placeholder="Job Title or Keyword" />
             </div>
             <div className="relative w-32 sm:w-40">
-              <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none  text-gray-500 dark:text-gray-400">
+              <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none  text-gray-500 ">
                 <ImLocation size={20} />
               </div>
-              <input type="text" value={city} onChange={(e) => setCity(e.target.value)} id="voice-search" className="bg-gray-50 border border-gray-300 text-gray-900 text-xs sm:text-sm rounded-md  focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="City or State" />
+              <input type="text" value={city} onChange={(e) => setCity(e.target.value)} id="voice-search" className="bg-gray-50 border border-gray-300 text-gray-900 text-xs sm:text-sm rounded-md  focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 " placeholder="City or State" />
             </div>
           </div>
 
-          <button type="submit" className="rounded-lg w-6/12 inline-flex justify-center items-center py-2.5 px-3 ml-2 text-sm font-medium text-white bg-emerald-500 border border-emerald-500 hover:bg-emerald-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          <button type="submit" className="rounded-lg w-6/12 inline-flex justify-center items-center py-2.5 px-3 ml-2 text-sm font-medium text-white bg-emerald-500 border border-emerald-500 hover:bg-emerald-600 focus:ring-4 focus:outline-none focus:ring-blue-300">
             <svg aria-hidden="true" className="mr-2 -ml-1 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>Search
           </button>
 
@@ -329,7 +329,7 @@ function Page() {
 
      <div className="flex mt-20">
       { currentPage===1 ? "" : 
-  <button onClick={prev  } className="flex items-center justify-center px-4 h-10 me-3 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+  <button onClick={prev  } className="flex items-center justify-center px-4 h-10 me-3 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 ">
     <svg className="w-3.5 h-3.5 me-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
       <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 5H1m0 0 4 4M1 5l4-4"/>
     </svg>
@@ -338,7 +338,7 @@ function Page() {
  }
  {
   data.length ===10 ?
-<button  onClick={next} className="flex items-center justify-center px-4 h-10 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+<button  onClick={next} className="flex items-center justify-center px-4 h-10 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 ">
     Next
     <svg className="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
       <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
