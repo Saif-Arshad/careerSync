@@ -46,8 +46,8 @@ const submitform = (e:any) => {
 
 			return
 		  }
-		  toast.success('login successful redirecting to Job Section')
-		  router.push('/jobs')
+		  toast.success('login successful Now you can access Job Section')
+		  router.push('/')
 		}
 		  func()
 		} 
