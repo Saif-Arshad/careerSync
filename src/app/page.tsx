@@ -230,7 +230,7 @@ export default function page() {
         </h3>
         <div className="justify-center lg:justify-left mt-8 flex lg:flex-shrink-0 lg:mt-0">
             <div className="inline-flex">
-                <Link href=".login" target="_blank"
+                <Link href="/login"
                     className="inline-flex items-center justify-center px-5 py-3 text-base leading-6 font-medium text-emerald-600 hover:text-emerald-500 focus:outline-none transition duration-150 ease-in-out">
                     Log In
                 </Link>

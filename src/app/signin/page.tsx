@@ -217,11 +217,7 @@ const submitform = (e:any) => {
 								href="/login">
 								Already have an account? LogIn!
 							</Link>
-							<Link className="inline-block text-sm text-blue-500align-baseline hover:text-blue-800"
-								href="/forget-password">
 							
-								Forgot Password?
-							</Link>
 						</div>
 					</form>
 				</div>
