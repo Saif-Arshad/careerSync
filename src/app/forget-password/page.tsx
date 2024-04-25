@@ -56,7 +56,6 @@ export default function page() {
         };
         newPassword();
       } catch (error: any) {
-        console.log(error);
         throw error.message;
       }
     } else {
@@ -95,7 +94,6 @@ export default function page() {
         };
         check();
       } catch (error: any) {
-        console.log(error);
         throw error.message;
       }
     }

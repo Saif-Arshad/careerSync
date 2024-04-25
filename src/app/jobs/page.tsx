@@ -85,8 +85,8 @@ function Page() {
         }
       setData(finaldata);        
       setLoading(false);
-    } catch (error) {
-      console.log(error);
+    } catch (error:any) {
+      throw error.message
     }
   };
 
@@ -127,7 +127,6 @@ function Page() {
     }
   };
 
-    console.log(jobDetail);
    
 
   return (

@@ -72,7 +72,6 @@ const submitform = (e:any) => {
 			  }
 			  else {
 				toast.error("Something went wrong");
-				console.log("User Failed");
 			  }
 	setloader(false)
 			  
@@ -80,7 +79,6 @@ const submitform = (e:any) => {
 		postinfData()
 		
 	} catch (error:any) {
-			console.log(error);
 			throw error.message
 			
 	}

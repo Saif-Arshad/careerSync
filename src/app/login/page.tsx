@@ -52,8 +52,8 @@ const submitform = (e:any) => {
 		}
 		  func()
 		} 
-		catch (error) {
-		  console.log(error);
+		catch (error:any) {
+		  throw error.message
 		  
 		}
 	
