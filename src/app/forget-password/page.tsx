@@ -210,9 +210,9 @@ export default function page() {
                 <div className=" flex flex-wrap justify-around flex-col sm:flex-row space-y-4 sm:space-y-0">
                   <Link
                     className="inline-block text-sm text-blue-500 dark:text-blue-500 align-baseline hover:text-blue-800"
-                    href="/signin"
+                    href="/signup"
                   >
-                    Don&apos;t have an account? SignIn!
+                    Don&apos;t have an account? SignUp!
                   </Link>
                 </div>
               </form>

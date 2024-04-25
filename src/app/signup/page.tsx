@@ -53,7 +53,7 @@ const submitform = (e:any) => {
 			});
 			const { userExists } = await checkAlready.json();
 			if (userExists) {
-				toast.error("Email Already Exist Try Another Email to signIn");
+				toast.error("Email Already Exist Try Another Email to signUp");
 	setloader(false)
 
 				return;

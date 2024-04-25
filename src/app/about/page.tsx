@@ -70,7 +70,7 @@ Every day, we’re inspired by a vision to make positive workplace change throug
         <span className="block font-bold  bg-emerald-500 bg-clip-text text-lg mt-3 md:mt-0 md:text-xl text-transparent">Start With Creating Your Account</span>
     </h2>
     <div className="mt-6 space-y-4 sm:space-y-0 sm:flex sm:space-x-5">
-        <Link href="/signin"
+        <Link href="/signup"
            className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-emerald-500 hover:bg-emerald-700 md:py-4 md:text-lg md:px-10">Get
             started
         </Link>

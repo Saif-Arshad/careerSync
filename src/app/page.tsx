@@ -27,7 +27,7 @@ export default function page() {
             Our mission is to create products that provide opportunities for all job seekers we’re fostering a world where people have the support and resources they need to find a job that loves them back.
             </p>
             <div className="mb-4 space-x-0 md:space-x-2 md:mb-8">
-                <Link href="/signin" className="inline-flex items-center justify-center w-full px-6 py-3 mb-2 text-lg text-white bg-emerald-500 hover:bg-emerald-700 rounded-2xl sm:w-auto sm:mb-0">
+                <Link href="/signup" className="inline-flex items-center justify-center w-full px-6 py-3 mb-2 text-lg text-white bg-emerald-500 hover:bg-emerald-700 rounded-2xl sm:w-auto sm:mb-0">
                     Get Started
                     <svg className="w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                 </Link>
@@ -236,9 +236,9 @@ export default function page() {
                 </Link>
             </div>
             <div className="ml-3 inline-flex rounded-md shadow">
-                <Link href="/signin"
+                <Link href="/signup"
                     className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
-                    Sign In
+                    Sign Up
                 </Link>
             </div>
         </div>
