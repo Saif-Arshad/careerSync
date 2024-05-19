@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "animate.css": "^4.1.1",
+    "aos": "^2.3.4",
     "axios": "^1.6.8",
     "bcrypt": "^5.1.1",
     "mongoose": "^8.3.2",
@@ -22,6 +23,7 @@
     "sharp": "^0.33.3"
   },
   "devDependencies": {
+    "@types/aos": "^3.0.7",
     "@types/bcrypt": "^5.0.2",
     "@types/node": "^20",
     "@types/react": "^18",

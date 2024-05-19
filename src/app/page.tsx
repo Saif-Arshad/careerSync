@@ -1,4 +1,7 @@
-import React from 'react'
+/* eslint-disable react-hooks/rules-of-hooks */
+"use client"
+
+import React ,{useEffect} from 'react'
 import one from '../../public/image/Companies/one.png'
 import two from '../../public/image/Companies/two.png'
 import three from '../../public/image/Companies/three.png'
@@ -12,15 +15,24 @@ import PersonSix from '../../public/image/Users/six.jpeg'
 import Image from 'next/image'
 import '@/Stylesheets/Home.css'
 import Link from 'next/link'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export default function page() {
+    useEffect(() => {
+        AOS.init({
+             duration: 800,
+             once: false,
+           })
+     }, [])
+
   return (
     <div className='min-h-screen  flex items-center w-full overflow-x-hidden justify-around'>
 <section className=" bg-white w-full">
     <div className='w-full main-hero box-border py-24 md:py-32 min-h-screen'>
     <div className="px-12 mx-auto max-w-7xl ">
         <div className="w-full mx-auto text-left md:w-11/12 xl:w-9/12 md:text-center">
-            <h1 className="mb-8 w-full text-3xl sm:text-4xl font-extrabold leading-none tracking-normal text-gray-900 md:text-6xl md:tracking-tight">
+            <h1 data-aos="fade-up"  className="mb-8 w-full text-3xl sm:text-4xl font-extrabold leading-none tracking-normal text-gray-900 md:text-6xl md:tracking-tight">
                 <span>Find Your</span> <span className="block w-full py-2 text-transparent bg-clip-text leading-12 bg-gradient-to-r from-green-400 to-purple-600 lg:inline">Dream Job</span> <span>Faster With Us</span>
             </h1>
             <p className="px-0 mb-8 text-lg text-gray-600 md:text-xl lg:px-24">
