@@ -45,7 +45,7 @@ export default function page() {
           const {message} = await res.json();
           if(message){
               toast.success(message);
-              router.push('/')
+              router.push('/login')
               setlaoder(false);
               return;
           }
