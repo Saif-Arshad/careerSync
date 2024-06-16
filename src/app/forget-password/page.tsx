@@ -112,7 +112,7 @@ export default function page() {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+    <div className="min-h-screen bg-white ">
       <div className="mx-auto">
         <div className="flex justify-center px-6 pt-4 ">
           <div className="w-full xl:w-3/4 lg:w-11/12 flex md:flex-row flex-col">
@@ -132,7 +132,7 @@ export default function page() {
               </h3>
               <form
                 onSubmit={submitform}
-                className="px-8 pt-6 pb-8 mb-0 bg-white dark:bg-gray-800 rounded"
+                className="px-8 pt-6 pb-8 mb-0 bg-white  rounded"
               >
                 <div className="mb-4  ">
                   <label
@@ -152,14 +152,14 @@ export default function page() {
 
                 <div className="mb-4 ">
                   <label
-                    className="block mb-2 text-sm font-semibold text-black dark:text-white"
+                    className="block mb-2 text-sm font-semibold text-black "
                     htmlFor="email"
                   >
                     Email
                   </label>
                   <input
                     onChange={(e: any) => setemail(e.target.value)}
-                    className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-white border ring-1 ring-emerald-200  rounded appearance-none focus:outline-none focus:shadow-outline"
+                    className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border ring-1 ring-emerald-200  rounded appearance-none focus:outline-none focus:shadow-outline"
                     id="email"
                     type="email"
                     placeholder="yourmail@gmail.com"
@@ -168,7 +168,7 @@ export default function page() {
                 {forget ? (
                   <div className="mb-4 md:mr-2 md:mb-0">
                     <label
-                      className="block mb-2 text-sm font-semibold text-black dark:text-white"
+                      className="block mb-2 text-sm font-semibold text-black "
                       htmlFor="password"
                     >
                       New Password
